@@ -72,6 +72,7 @@ var onLoad = {
         reloadFunctions.init();
         baseFunctions.init();
         navSticky.init(); //CUSTOM ADD
+		preloadFaces.init(); //CUSTOM ADD
     }
 };
 
@@ -923,6 +924,22 @@ var navSticky = {
     init: function() {
 
         $j('#header-section').sticky({topSpacing:0});
+
+    }
+}
+
+
+
+/////////////////////////////////////////////
+// Preload Faces //CUSTOM ADD
+/////////////////////////////////////////////
+
+var preloadFaces = {
+    init: function() {
+
+		$j(window).load(function () {
+			 $j(".faces").fadeIn();
+		});
 
     }
 }
