@@ -58,7 +58,7 @@
 								<option value="shortcode-columns"><?php _e('Columns', 'swiftframework');?></option>
 								<option value="shortcode-person"><?php _e('Person', 'swiftframework');?></option>
 								<option value="shortcode-map"><?php _e('Map', 'swiftframework');?></option>
-								<option value="shortcode-client"><?php _e('Client', 'swiftframework');?></option>
+								<option value="shortcode-client"><?php _e('Sponsor', 'swiftframework');?></option>
 								<option value="shortcode-divider"><?php _e('Divider', 'swiftframework');?></option>
 								<option value="shortcode-accordion"><?php _e('Accordion', 'swiftframework');?></option>
 								<option value="shortcode-tabs"><?php _e('Tabs', 'swiftframework');?></option>
@@ -239,6 +239,11 @@
 								<input id="client-image-url" name="client-image-url" type="text" value=""/>
 								<p class="info">This should be ideally be less than 150px wide, and 100px tall.</p>
 							</div>
+							<div class="option">
+								<label for="client-link-url"><?php _e('Client Link URL', 'swiftframework');?></label>
+								<input id="client-link-url" name="client-link-url" type="text" value=""/>
+								<p class="info">Insert a link.</p>
+							</div>							
 							<div class="option">
 								<label for="client-last" class="for-checkbox"><?php _e('Last', 'swiftframework');?></label>
 								<input id="client-last" class="checkbox" name="client-last" type="checkbox"/>

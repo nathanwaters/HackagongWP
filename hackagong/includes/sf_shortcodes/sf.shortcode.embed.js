@@ -55,6 +55,7 @@ function embedSelectedShortcode() {
 
 		// Client
 		var client_image_url = document.getElementById('client-image-url').value;
+		var client_link_url = document.getElementById('client-link-url').value;
 		var client_last = "";
 			
 		if (document.getElementById('client-last').checked) {
@@ -165,11 +166,11 @@ function embedSelectedShortcode() {
 		/////////////////////////////////////////
 
 		if (shortcode_select == 'shortcode-client' && client_last == 'no') {
-			shortcodeHTML = '[client_box]'+client_image_url+'[/client_box]';
+			shortcodeHTML = '[client_box link='+client_link_url+']'+client_image_url+'[/client_box]';
 		}
 
 		if (shortcode_select == 'shortcode-client' && client_last == 'yes') {
-			shortcodeHTML = '[client_box_last]'+client_image_url+'[/client_box_last]';			
+			shortcodeHTML = '[client_box_last link='+client_link_url+']'+client_image_url+'[/client_box_last]';			
 		}
 
 		/////////////////////////////////////////

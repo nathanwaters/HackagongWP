@@ -196,12 +196,15 @@
 	================================================= */
 
 	function client_box( $atts, $content = null ) {
-	   return '<div class="client-box" style="background-image: url('. do_shortcode($content) .');"></div>';
+		extract(shortcode_atts(array(
+			"link" => ''
+		), $atts));
+	   return '<div class="client-box" style="background-image: url('. do_shortcode($content) .');"><a href="'.$link.'" target="blank"></a></div>';
 	}
 	add_shortcode('client_box', 'client_box');
 
 	function client_box_last( $atts, $content = null ) {
-	   return '<div class="client-box" style="background-image: url('. do_shortcode($content) .');"></div><div class="clearboth"></div>';
+	   return '<div class="client-box" style="background-image: url('. do_shortcode($content) .');"><a href="'.$link.'" target="blank"></a></div><div class="clearboth"></div>';
 	}
 	add_shortcode('client_box_last', 'client_box_last');
 

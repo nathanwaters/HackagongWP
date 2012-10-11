@@ -2496,3 +2496,18 @@ ul.events li span {
 .contact-intro-text {
 	padding:0 50px 0 50px;
 }
+
+.sponsor-box {
+	width:100%;
+	clear:both;
+}
+
+.sponsor-box h1 {
+	padding: 60px 0 40px 0;
+}
+
+.client-box a {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
