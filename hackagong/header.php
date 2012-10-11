@@ -87,7 +87,7 @@
 	  require_once ('sdk/cache.class.php');
 
 	  $c = new Cache();
-	  $c->setCachePath('sdk/cache/');
+	  $c->setCachePath(get_stylesheet_directory().'/sdk/cache/');
 	  $c->eraseExpired();
 
 	  if ($c->isCached('attending')) {
