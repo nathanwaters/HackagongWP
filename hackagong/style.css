@@ -2351,7 +2351,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 #hero-section {
-	height:500px;
+	height:570px;
 	width:100%;
 	background:#E34A28;
 	text-align:center;
@@ -2411,10 +2411,14 @@ nav .menu li {
 	position: relative;
 }
 
+#hero-section .logo {
+	padding: 20px;
+}
+
 #hero-section .logo img {
 	max-width:100%;
 	height:auto;
-	margin-top:50px;
+	margin-top:10px;
 }
 
 .column, .columns {
