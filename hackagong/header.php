@@ -97,8 +97,8 @@
 	  } else {
 
 	    $facebook = new Facebook(array(
-	      'appId'  => '104236416398654',
-	      'secret' => '<SECRET KEY>',
+	      'appId'  => FACEBOOK_APP_ID,
+	      'secret' => FACEBOOK_APP_KEY,
 	    ));
 	    $access_token = $facebook->getAccessToken();
 	    $params = array('access_token' => $access_token);
