@@ -156,9 +156,9 @@
           <?php else: ?>
             <div class="social-login">
               <ul>
-                <li><a href="#"><img src="<?bloginfo('template_url');?>/images/social/facebook_32.png" class="social_icon" id="social_login_fb"></a></li>
-                <li><a href="#"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon" id="social_login_tw"></a></li>
-                <li><a href="#"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon" id="social_login_go"></a></li>
+                <li><a href="#" id="social_login_fb"><img src="<?bloginfo('template_url');?>/images/social/facebook_32.png" class="social_icon"></a></li>
+                <li><a href="#" id="social_login_tw"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon"></a></li>
+                <li><a href="#" id="social_login_go"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon"></a></li>
                 <li>Register</li>
               </ul>
             </div>
