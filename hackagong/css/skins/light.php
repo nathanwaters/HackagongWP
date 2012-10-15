@@ -62,17 +62,17 @@ h2, h3, h4, h5, h6 {
 	color: #181818;
 }
 nav .menu ul {
-	background-color: <?php echo $header_color; ?>;
-	border-color: <?php echo $border_color; ?>;
+	/*background-color: <?php echo $header_color; ?>;
+	border-color: <?php echo $border_color; ?>;*/
 }
 nav .menu ul li {
 	border-bottom-color: <?php echo $border_color; ?>
 }
 nav ul.menu ul li.menu-item a {
-	color: #222;
+	color: #fff;
 }
 nav ul.menu ul li.menu-item a:hover {
-	color: <?php echo $keyline_color; ?>;
+	color: #000;
 }
 .section-heading h1, .section-heading span.section-desc {
 	text-shadow: 1px 1px 1px #fff;
@@ -270,7 +270,7 @@ span.dropcap {
 #header-section {border-top-color: <?php echo $custom_keyline_color; ?>!important;}
 .feature .heading, .feature .image, .section-heading h1 {border-bottom-color: <?php echo $custom_keyline_color; ?>!important;}
 li.item:hover a.view-item, span.highlighted, span.dropcap, #portfolio-filter li.selected a, #portfolio-filter li a:hover, #home-slider .flex-control-nav a:hover, #home-slider .flex-control-nav a.active {background-color: <?php echo $custom_keyline_color; ?>!important;}
-.menu li.current a, #tagline span, .feature a.link, #tagline a, .pagenavi span.current, a:hover, section.twitter-widget .twitter-link a, #copyright a, #sidebar section.widget a:hover, section.widget a:hover, section.twitter-widget .twitter-date a:hover {color: <?php echo $custom_keyline_color; ?>!important;}
+.menu > li.current > a, #tagline span, .feature a.link, #tagline a, .pagenavi span.current, .menu > li > a:hover, section.twitter-widget .twitter-link a, #copyright a, #sidebar section.widget a:hover, section.widget a:hover, section.twitter-widget .twitter-date a:hover {color: <?php echo $custom_keyline_color; ?>!important;}
 #footer {border-top-color: <?php echo $custom_keyline_color; ?>!important;}
 section.flickr-widget a.flickr-img-link:hover {border-color: <?php echo $custom_keyline_color; ?>!important;}
 .blog-items li .blog-excerpt.quote, article.type-post .body-content.quote, blockquote {border-left-color: <?php echo $custom_keyline_color; ?>!important;}

@@ -202,6 +202,9 @@
 				</header>
 
 			</div>
+
+			<div class="sub-navigation"></div>
+
 		</div>
 
 		<!-- OPEN #main-container -->

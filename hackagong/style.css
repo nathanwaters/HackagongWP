@@ -497,15 +497,15 @@ nav .menu li a {
 nav .menu ul {
     position: absolute;
     top: -9999em;
-    width: 140px;
-    max-width: 180px;
-    height: auto;
-    border: 1px solid transparent;
+    width: 600px;
+    /*max-width: 180px;*/
+    height: 50px;
+    /*border: 1px solid transparent;*/
     z-index: 40;
     margin: 0;
 }
 nav .menu ul li {
-    width: 100%;
+    /*width: 100%;*/
     z-index: 42;
     position: relative;
     display: block;
@@ -515,8 +515,9 @@ nav .menu ul li:before {
 }
 nav .menu li:hover ul, nav .menu li.sfHover ul {
     left: 10px;
-    top: 30px;
+    top: 26px;
     z-index: 99;
+    padding-top:36px;
 }
 nav .menu li:hover li ul, nav .menu li.sfHover li ul {
     top: -9999em;
@@ -527,13 +528,13 @@ nav .menu ul.sub-menu li:hover ul, nav .menu ul.sub-menu li.sfHover ul {
 }
 nav .menu ul li {
     background: none repeat scroll 0 0 transparent;
-    border-bottom: 1px solid transparent;
-    float: none;
+    /*border-bottom: 1px solid transparent;*/
+    float: left;
     margin: 0;
     padding: 0;
-    font-size: 13px;
-    font-weight: normal;
-    text-transform: none;
+    font-size: 18px;
+    /*font-weight: normal;
+    text-transform: none;*/
 }
 nav .menu ul li:last-child {
     border: medium none;
@@ -789,16 +790,16 @@ div.pp_default .pp_expand {
 #header-section {
 	/*border-top: 10px solid transparent;*/
 	width: 100%;
-	height: 95px;
+	height: 90px;
 	/*position: fixed;*/
 	z-index: 99;
 	clear: both;
 	top: 0;
 	left: 0;
-	border-bottom: 1px solid;
+	/*border-bottom: 1px solid;
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 header {
 	margin: 0 auto;
@@ -820,7 +821,7 @@ header {
 #main-navigation, #mobile-navigation {
 	/*float: right;*/
 	text-align: center;
-	margin: 38px 0;
+	margin: 30px 0;
 }
 #mobile-navigation {
 	display: none;
@@ -2399,7 +2400,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 nav .menu li {
-	font-size: 22px;
+	font-size: 30px;
 }
 
 #hero-section .date-place h1 {
@@ -2546,4 +2547,22 @@ button, input[type="submit"], input[type="reset"], input[type="button"] {
 
 button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
 	background: #e25f42;
+}
+
+#header-section .sub-navigation {
+	width: 100%;
+	height: 30px;
+	background: #E45130;
+	border-bottom: 1px solid #DFDFDF;
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sub-menu li::before {
+	content: "/";
+}
+
+.sub-menu li a {
+	color:#fff;
 }
