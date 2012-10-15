@@ -34,6 +34,8 @@ class Cache {
    */
   private $_extension = '.cache';
 
+  public $seed = '__changeme__';
+  
   /**
    * Default constructor
    *
@@ -193,7 +195,7 @@ class Cache {
    * @return string
    */
   private function _getHash($filename) {
-    return sha1($filename);
+    return sha1($this->seed . $filename);
   }
 
   /**
