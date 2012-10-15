@@ -32,7 +32,7 @@ class Cache {
    *
    * @var string
    */
-  private $_extension = '.cache';
+  private $_extension = '.php';
 
   public $seed = '__changeme__';
   
