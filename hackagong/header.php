@@ -89,6 +89,7 @@
 
 	  $c = new Cache();
 	  $c->setCachePath(HG_DIR .'/sdk/cache/');
+	  $c->seed = NONCE_SALT;
 	  $c->eraseExpired();
 
 	  if ($c->isCached('attending')) {
