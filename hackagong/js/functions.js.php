@@ -1,8 +1,16 @@
 <?php
-    header('Content-Type: text/javascript; charset=UTF-8');
-	
+    
     global $data;
-    require_once('../../../../wp-load.php');
+    $wp_loader_file = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wp-load.php';
+    
+    if(!is_file($wp_loader_file)) {
+      header('HTTP/1.0 404 Not Found', true, 404);
+      print '<html><h1>404 - File Not Found</h1>';
+      die();
+    }
+    
+    header('Content-Type: text/javascript; charset=UTF-8');
+    include_once($wp_loader_file);
 
     $dynamic_header = $data['ab_enable_dynamic_header'];
 
