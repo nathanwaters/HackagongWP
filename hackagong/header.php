@@ -12,7 +12,6 @@
 
 	<!-- OPEN head -->
 	<head>
-		
 		<?php global $data; ?>
 		
 		<!-- Site Meta -->
@@ -45,6 +44,7 @@
 		<?php } ?>
 		
 		<!-- LOAD Stylesheets -->
+		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/social.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/base.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/skeleton.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/flexslider.css" />
@@ -125,8 +125,8 @@
 
 	<div id="faces-wrap">
 		<div class="faces">
-			<?php shuffle($attending); foreach ($attending as $id) { ?><img src="<?php echo get_bloginfo('template_directory').'/sdk/cache/'.$id; ?>.jpg"><?php } ?>
-		</div>
+		  <?php shuffle($attending); foreach ($attending as $id) { ?><img src="<?php echo get_bloginfo('template_directory').'/sdk/cache/'.$id; ?>.jpg">
+		  <?php } ?></div>
 	</div>
 
 	<?php
@@ -145,16 +145,16 @@
 
 				<header class="sixteen columns">
 					
-					<!--<div id="logo" class="four columns alpha">
-						<a href="<?php bloginfo('url'); ?>">
-							<?php $logo = $data['ab_logo_upload'];?>
-							<?php if ($logo) { ?>
-							<img src="<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-							<?php } else { ?>
-							<img src="<?php echo get_bloginfo('template_directory'); ?>/images/logo-light.png" alt="<?php bloginfo( 'name' ); ?>" />
-							<?php } ?>
-						</a>
-					</div>-->
+					<!-- <div id="logo" class="four columns alpha">
+					                    <a href="<?php bloginfo('url'); ?>">
+					                      <?php $logo = $data['ab_logo_upload'];?>
+					                      <?php if ($logo) { ?>
+					                      <img src="<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" />
+					                      <?php } else { ?>
+					                      <img src="<?php echo get_bloginfo('template_directory'); ?>/images/logo-light.png" alt="<?php bloginfo( 'name' ); ?>" />
+					                      <?php } ?>
+					                    </a>
+					                  </div> -->
 
 					<div class="nav-wrap sixteen columns omega">
 	
