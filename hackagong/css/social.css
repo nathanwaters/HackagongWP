@@ -1,0 +1,38 @@
+#social-wrap {
+  height: 40px;
+  width: 100%;
+  margin: 0 auto;
+  position: ;
+  background: #444;
+  color: white;
+  padding: 4px 12px 4px 12px;
+  float: left;
+}
+
+#social-wrap img.social_icon {
+  border: 0px;
+  height: 32px;
+  width: 32px;
+  
+}
+
+#social-wrap img.social_user_icon {
+  border: 0px;
+  height: 32px;
+  width: 32px;
+  border: 1px solid silver;
+}
+
+#social-wrap ul {
+  list-style: none;
+  float: right;
+}
+
+#social-wrap ul > li {
+  float: right;
+  border: 1px solid green;
+  border: 0px;
+  margin: 0px 4px 0px 4px;
+}
+
+

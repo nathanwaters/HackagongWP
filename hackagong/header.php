@@ -82,12 +82,13 @@
 	</noscript>
 	
 	<?php if ( is_front_page() ) { 
-	
+	  define('HG_DIR', get_stylesheet_directory());
+	  
 	  require_once ('sdk/facebook.php');
 	  require_once ('sdk/cache.class.php');
 
 	  $c = new Cache();
-	  $c->setCachePath(get_stylesheet_directory().'/sdk/cache/');
+	  $c->setCachePath(HG_DIR .'/sdk/cache/');
 	  $c->eraseExpired();
 
 	  if ($c->isCached('attending')) {
@@ -123,6 +124,7 @@
 	  }	
 	?>
 
+
 	<div id="faces-wrap">
 		<div class="faces">
 		  <?php shuffle($attending); foreach ($attending as $id) { ?><img src="<?php echo get_bloginfo('template_directory').'/sdk/cache/'.$id; ?>.jpg">
@@ -142,7 +144,28 @@
 		<div id="header-section">
 
 			<div class="container">
-
+        <!-- USER REGISTRATION -->
+        <div id="social-wrap">
+          <?php if($_SESSION['SOCIAL_AUTH'] == true): ?>
+            <div class="social-loggedin">
+              <ul>
+                <li><a href="/messages">Messages</a></li>
+                <li><a href="/account"><img src="<?php echo $_SESSION['SOCIAL_PROFILE_URL'] ?>" class="social_user_icon"> Account</a></li>
+              </ul>
+            </div>
+          <?php else: ?>
+            <div class="social-login">
+              <ul>
+                <li><a href="#"><img src="<?bloginfo('template_url');?>/images/social/facebook_32.png" class="social_icon" id="social_login_fb"></a></li>
+                <li><a href="#"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon" id="social_login_tw"></a></li>
+                <li><a href="#"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon" id="social_login_go"></a></li>
+                <li>Register</li>
+              </ul>
+            </div>
+          <?php endif; ?>
+        </div>
+        
+        
 				<header class="sixteen columns">
 					
 					<!-- <div id="logo" class="four columns alpha">
