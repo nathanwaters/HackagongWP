@@ -16,6 +16,7 @@
 		
 		<!-- Site Meta -->
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta name="fb-app" value="<?=FACEBOOK_APP_ID?>">
 		
 		<!-- Site Title -->
 		<title>
