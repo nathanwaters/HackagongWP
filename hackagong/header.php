@@ -82,56 +82,10 @@
 		</div>
 	</noscript>
 	
-	<?php if ( is_front_page() ) { 
-	  define('HG_DIR', get_stylesheet_directory());
-	  
-	  require_once ('sdk/facebook.php');
-	  require_once ('sdk/cache.class.php');
-
-	  $c = new Cache();
-	  $c->setCachePath(HG_DIR .'/sdk/cache/');
-	  $c->seed = NONCE_SALT;
-	  $c->eraseExpired();
-
-	  if ($c->isCached('attending')) {
-
-	    $attending = $c->retrieve('attending');
-
-	  } else {
-
-	    $facebook = new Facebook(array(
-	      'appId'  => FACEBOOK_APP_ID,
-	      'secret' => FACEBOOK_APP_KEY,
-	    ));
-	    $access_token = $facebook->getAccessToken();
-	    $params = array('access_token' => $access_token);
-
-	    $objs = $facebook->api('139968802813349/events', 'GET', $params);
-
-	    foreach($objs['data'] as $data) {
-
-	        $objs2 = $facebook->api($data['id'].'/invited', 'GET', $params);
-
-	        foreach ($objs2['data'] as $attendee) {
-	          if ($attendee['rsvp_status'] == 'attending' || $attendee['rsvp_status'] == 'unsure') {
-	          	file_put_contents(get_stylesheet_directory().'/sdk/cache/'.$attendee['id'].'.jpg', file_get_contents(get_bloginfo('template_directory').'/sdk/timthumb.php?src=http://graph.facebook.com/'.$attendee['id'].'/picture?type=large&w=75&h=75'));
-	            $attending[] = $attendee['id'];
-	          }
-	        }
-
-	    }
-
-	    $c->store('attending', $attending, 60*60*24*7);
-
-	  }	
+	<?php
+   if ( is_front_page() ) { 
+      print hg_facebook_user_tiles();
 	?>
-
-
-	<div id="faces-wrap">
-		<div class="faces">
-		  <?php shuffle($attending); foreach ($attending as $id) { ?><img src="<?php echo get_bloginfo('template_directory').'/sdk/cache/'.$id; ?>.jpg">
-		  <?php } ?></div>
-	</div>
 
 	<?php
 	if(have_posts()) : while(have_posts()) : the_post(); ?>

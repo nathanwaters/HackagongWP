@@ -79,6 +79,8 @@ add_image_size( 'showcase-image', 1680, 805, true);
 
 if ( ! isset( $content_width ) ) $content_width = 940;
 
+// Include hackagong functions
+require('hackagong'.DIRECTORY_SEPARATOR.'functions.php');
 
 /* LOAD SCRIPTS
 ================================================== */
