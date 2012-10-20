@@ -3,7 +3,7 @@
 if (!session_id()) {
   session_start();
 }
-    
+
 get_header(); 
 	
 if ( is_front_page() ) :
