@@ -119,6 +119,7 @@
                   <li><a href="/wp-admin/">Backend</a></li>
                 <?php endif; ?>
                 <li><a href="/messages">Messages</a></li>
+                <li><a href="/attendees">Attendees</a></li>
                 <li><a href="/profile"><?php echo hg_user_profilepic(); ?> <?php echo $current_user->username ?> <?php echo $current_user->last_name ?> </a></li>
               </ul>
             </div>
