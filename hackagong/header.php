@@ -102,20 +102,33 @@
 			<div class="container">
         <!-- USER REGISTRATION -->
         <div id="social-wrap">
-          <?php if($_SESSION['SOCIAL_AUTH'] == true): ?>
-            <div class="social-loggedin">
+          <div id="header-logo">
+            <p>HackAGong</p>
+          </div>
+          <?php if(is_user_logged_in()): ?>
+            <?php
+              global $current_user;
+              get_currentuserinfo();
+
+              // $user = wp_get_current_user();
+            ?>
+            <div id="social-loggedin">
               <ul>
+                <li><a href="<?php echo wp_logout_url('/'); ?>" title="Logout">Logout</a></li>
+                <?php if(is_admin()): ?>
+                  <li><a href="/wp-admin/">Backend</a></li>
+                <?php endif; ?>
                 <li><a href="/messages">Messages</a></li>
-                <li><a href="/account"><img src="<?php echo $_SESSION['SOCIAL_PROFILE_URL'] ?>" class="social_user_icon"> Account</a></li>
+                <li><a href="/profile"><?php echo hg_user_profilepic(); ?> <?php echo $current_user->username ?> <?php echo $current_user->last_name ?> </a></li>
               </ul>
             </div>
           <?php else: ?>
-            <div class="social-login">
+            <div id="social-login">
               <ul>
                 <li><a href="#" id="social_login_fb"><img src="<?bloginfo('template_url');?>/images/social/facebook_32.png" class="social_icon"></a></li>
                 <li><a href="#" id="social_login_tw"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon"></a></li>
                 <li><a href="#" id="social_login_go"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon"></a></li>
-                <li>Register</li>
+                <li>Login with:</li>
               </ul>
             </div>
           <?php endif; ?>
