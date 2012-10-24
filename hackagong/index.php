@@ -1,8 +1,13 @@
-<?php get_header(); ?>
-	
-<?php if ( is_front_page() ) : ?>
+<?php 
 
-	<?php
+if (!session_id()) {
+  session_start();
+}
+
+get_header(); 
+	
+if ( is_front_page() ) :
+
 		$type = 'post';
 		$per_page = 8;
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -16,7 +21,8 @@
 		$wp_query = NULL;
 		$wp_query = new WP_Query();
 		$wp_query->query($args);
-	?>
+
+?>
 
 	<!-- OPEN #front-page -->
 	<section id="front-page" class="section clearfix">

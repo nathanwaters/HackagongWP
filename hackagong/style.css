@@ -6,7 +6,7 @@
 	Description: Heavily customized theme for Hackagong using: Ability - Responsive Creative Portfolio Theme by Ed Cousins
 	License: GNU General Public License version 3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
-	Version: 1.7
+	Version: 0.0.4
 	Author: Nathan Waters
 	Author URI: www.swiftpsd.com / www.edcousins.com
 
@@ -101,7 +101,7 @@ li {
 .section-heading {
 }
 .section-heading-content {
-	padding: 35px 0 30px;
+	padding: 45px 0 30px;
 }
 .section-heading h1 {
 	display: inline-block;
@@ -796,6 +796,7 @@ div.pp_default .pp_expand {
 	clear: both;
 	top: 0;
 	left: 0;
+	background: white;
 	/*border-bottom: 1px solid;
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -2469,7 +2470,7 @@ ul.events li span {
 }
 
 .section-heading-content {
-	padding: 10px 0 0 0;
+	padding: 20px 0 0 0;
 }
 
 .footer-widgets .columns {
