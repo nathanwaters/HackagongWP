@@ -126,8 +126,8 @@
             <div id="social-login">
               <ul>
                 <li><a href="#" id="social_login_fb"><img src="<?bloginfo('template_url');?>/images/social/facebook_32.png" class="social_icon"></a></li>
-                <li><a href="#" id="social_login_tw"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon"></a></li>
-                <li><a href="#" id="social_login_go"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon"></a></li>
+                <!-- <li><a href="#" id="social_login_tw"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon"></a></li> -->
+                <!-- <li><a href="#" id="social_login_go"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon"></a></li> -->
                 <li>Login with:</li>
               </ul>
             </div>
