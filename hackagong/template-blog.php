@@ -37,7 +37,8 @@ Template Name: Blog
 			'post_status' => 'publish',
 			'paged' => $paged,
 			'posts_per_page' => $per_page,
-			'ignore_sticky_posts'=> 1
+			'ignore_sticky_posts'=> 1,
+			'cat'=>1
 		  );
 		  $wp_query = NULL;
 		  $wp_query = new WP_Query();
