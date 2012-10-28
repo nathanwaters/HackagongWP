@@ -1,56 +1,3 @@
-<?php
-    
-    global $data;
-    $wp_loader_file = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'wp-load.php';
-    
-    if(!is_file($wp_loader_file)) {
-      header('HTTP/1.0 404 Not Found', true, 404);
-      print '<html><h1>404 - File Not Found</h1>';
-      die();
-    }
-    
-    header('Content-Type: text/javascript; charset=UTF-8');
-    include_once($wp_loader_file);
-
-    $dynamic_header = $data['ab_enable_dynamic_header'];
-
-    $about_page = $data['ab_about_page'];
-    $about_page_title = get_page_by_path( $about_page );
-    $about_page_id = $about_page_title->ID;
-
-    $cpone_page = $data['ab_custom_page_one'];
-    $cpone_page_title = get_page_by_path( $cpone_page );
-    $cpone_page_id = $cpone_page_title->ID;
-
-    $cptwo_page = $data['ab_custom_page_two'];
-    $cptwo_page_title = get_page_by_path( $cptwo_page );
-    $cptwo_page_id = $cptwo_page_title->ID;
-
-    $cpthree_page = $data['ab_custom_page_three'];
-    $cpthree_page_title = get_page_by_path( $cpthree_page );
-    $cpthree_page_id = $cpthree_page_title->ID;
-
-    $cpfour_page = $data['ab_custom_page_four'];
-    $cpfour_page_title = get_page_by_path( $cpfour_page );
-    $cpfour_page_id = $cpfour_page_title->ID;
-
-    $cpfive_page = $data['ab_custom_page_five'];
-    $cpfive_page_title = get_page_by_path( $cpfive_page );
-    $cpfive_page_id = $cpfive_page_title->ID;
-
-    $cpsix_page = $data['ab_custom_page_six'];
-    $cpsix_page_title = get_page_by_path( $cpsix_page );
-    $cpsix_page_id = $cpsix_page_title->ID;
-
-    $use_custom_font = $data['ab_use_custom_font'];
-    $custom_font = $data['ab_standard_font'];
-    $use_custom_tagline_font = $data['ab_use_custom_tagline_font'];
-    $tagline_font = $data['ab_tagline_font'];
-
-    $portfolio_upload_bg = $data['ab_portfolio_bg_upload'];
-    $portfolio_preset_bg = $data['ab_preset_portfolio_bg'];
-
-?>
 /* ==================================================
 
 Custom jQuery functions.
@@ -96,12 +43,8 @@ init: function () {
             $nav = $j('#main-navigation'),
             $window = $j(window),
             $headerIsDynamic = true;
-            <?php if ($dynamic_header) { ?>
-                $headerIsDynamic = true;
-            <?php } else { ?>
-                $headerIsDynamic = false;
-            <?php } ?>
-            if ($headerIsDynamic) {
+                            $headerIsDynamic = false;
+                        if ($headerIsDynamic) {
                 $window.scroll(function () {
                     if ($window.scrollTop() > 70 && $window.width() > 959) {
                         header.animate($header, $logo, $nav);
@@ -156,12 +99,8 @@ var nav = {
         var $body = $j('body'), $current_page = $j('.current-menu-item'), $header = $j('#header-section'), $logo = $j('#logo').find('img'), $nav = $j('#main-navigation').find('ul.menu'), $window = $j(window);
         var $offset = 0, $standard_offset = 0, $home_offset = -145; $headerIsDynamic = true;
         
-        <?php if ($dynamic_header) { ?>
-            $headerIsDynamic = true;
-        <?php } else { ?>
-            $headerIsDynamic = false;
-        <?php } ?>
-        
+                    $headerIsDynamic = false;
+                
         if ($window.width() < 1024) {
             $standard_offset = -15;
         } else if (!$headerIsDynamic) {
@@ -357,14 +296,9 @@ var portfolioAjax = {
 
                         var $bg_image;
 
-                        <?php if ($portfolio_preset_bg) { ?>
-                            $bg_image = '<?php echo $portfolio_preset_bg; ?>';
-                        <?php } else if ($portfolio_upload_bg) { ?>
-                            $bg_image = '<?php echo $portfolio_upload_bg; ?>';
-                        <?php } else { ?> 
-                            $bg_image = '<?php echo get_bloginfo('template_directory'); ?>/images/portfolio_bg/wood.jpg';
-                        <?php } ?>
-
+                         
+                            $bg_image = 'http://hackagong.dev/wp-content/themes/hackagong/images/portfolio_bg/wood.jpg';
+                        
                         $cont.css('background-image', 'url(' + $bg_image + ')');
                         
                         $cont.slideDown(600);
@@ -478,14 +412,13 @@ var portfolioAjax = {
 var onePageAjax = {
     init: function(){
 
-        <?php if ($about_page) { ?>
-
+        
         var $about_section = $j('#about');
         var $about_cont = $j('#about .ajax-content');
         var $about_loading = $j('#about .loading');
 
         $about_loading.show();
-        $about_cont.load('<?php echo get_permalink( $about_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
+        $about_cont.load('http://hackagong.dev/about' + ' .ajax-load-content', function(response, status, xhr){
             var $error = $j("#error");
             if (status != 'error') {
                 $about_loading.hide();
@@ -497,16 +430,14 @@ var onePageAjax = {
             }
         });
 
-        <?php } ?>
-
-        <?php if($cpone_page) { ?>
-
+        
+        
                 var $cpone_section = $j('#custom-page-one');
                 var $cpone_cont = $j('#custom-page-one .ajax-content');
                 var $cpone_loading = $j('#custom-page-one .loading');
 
                 $cpone_loading.show();
-                $cpone_cont.load('<?php echo get_permalink( $cpone_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
+                $cpone_cont.load('http://hackagong.dev/schedule' + ' .ajax-load-content', function(response, status, xhr){
                     var $error = $j("#error");
                     if (status != 'error') {
                         $cpone_loading.hide();
@@ -518,16 +449,14 @@ var onePageAjax = {
                     }
                 });
                 
-        <?php } ?>
-
-        <?php if($cptwo_page) { ?>
-
+        
+        
                 var $cptwo_section = $j('#custom-page-two');
                 var $cptwo_cont = $j('#custom-page-two .ajax-content');
                 var $cptwo_loading = $j('#custom-page-two .loading');
 
                 $cptwo_loading.show();
-                $cptwo_cont.load('<?php echo get_permalink( $cptwo_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
+                $cptwo_cont.load('http://hackagong.dev/venue' + ' .ajax-load-content', function(response, status, xhr){
                     var $error = $j("#error");
                     if (status != 'error') {
                         $cptwo_loading.hide();
@@ -539,16 +468,14 @@ var onePageAjax = {
                     }
                 });
                 
-        <?php } ?>
-
-        <?php if($cpthree_page) { ?>
-
+        
+        
                 var $cpthree_section = $j('#custom-page-three');
                 var $cpthree_cont = $j('#custom-page-three .ajax-content');
                 var $cpthree_loading = $j('#custom-page-three .loading');
 
                 $cpthree_loading.show();
-                $cpthree_cont.load('<?php echo get_permalink( $cpthree_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
+                $cpthree_cont.load('http://hackagong.dev/sponsors' + ' .ajax-load-content', function(response, status, xhr){
                     var $error = $j("#error");
                     if (status != 'error') {
                         $cpthree_loading.hide();
@@ -560,16 +487,14 @@ var onePageAjax = {
                     }
                 });
                 
-        <?php } ?>
-
-        <?php if($cpfour_page) { ?>
-
+        
+        
                 var $cpfour_section = $j('#custom-page-four');
                 var $cpfour_cont = $j('#custom-page-four .ajax-content');
                 var $cpfour_loading = $j('#custom-page-four .loading');
 
                 $cpfour_loading.show();
-                $cpfour_cont.load('<?php echo get_permalink( $cpfour_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
+                $cpfour_cont.load('http://hackagong.dev/resources' + ' .ajax-load-content', function(response, status, xhr){
                     var $error = $j("#error");
                     if (status != 'error') {
                         $cpfour_loading.hide();
@@ -581,16 +506,14 @@ var onePageAjax = {
                     }
                 });
                 
-        <?php } ?>
-
-        <?php if($cpfive_page) { ?>
-
+        
+        
                 var $cpfive_section = $j('#custom-page-five');
                 var $cpfive_cont = $j('#custom-page-five .ajax-content');
                 var $cpfive_loading = $j('#custom-page-five .loading');
 
                 $cpfive_loading.show();
-                $cpfive_cont.load('<?php echo get_permalink( $cpfive_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
+                $cpfive_cont.load('http://hackagong.dev/register' + ' .ajax-load-content', function(response, status, xhr){
                     var $error = $j("#error");
                     if (status != 'error') {
                         $cpfive_loading.hide();
@@ -602,29 +525,8 @@ var onePageAjax = {
                     }
                 });
                 
-        <?php } ?>
-
-        <?php if($cpsix_page) { ?>
-
-                var $cpsix_section = $j('#custom-page-six');
-                var $cpsix_cont = $j('#custom-page-six .ajax-content');
-                var $cpsix_loading = $j('#custom-page-six .loading');
-
-                $cpsix_loading.show();
-                $cpsix_cont.load('<?php echo get_permalink( $cpsix_page_id ); ?>' + ' .ajax-load-content', function(response, status, xhr){
-                    var $error = $j("#error");
-                    if (status != 'error') {
-                        $cpsix_loading.hide();
-                        $cpsix_cont.fadeIn(600);
-                        reloadFunctions.init();
-                        prettyPhoto.init();
-                    } else {
-                        $error.html('Error: ' + xhr.status + ' ' + xhr.statusText);
-                    }
-                });
-                
-        <?php } ?>
-
+        
+        
     }   
 };
 
@@ -954,40 +856,3 @@ var preloadFaces = {
 
 
 $j(document).ready(onLoad.init);
-
-<?php if (($use_custom_font) || ($use_custom_tagline_font)) { ?>
-
-/////////////////////////////////////////////
-// GOOGLE WEB FONT FUNCTION
-/////////////////////////////////////////////
-
-<?php if ($use_custom_font && $use_custom_tagline_font) { ?>
-
-WebFontConfig = {
-    google: { families: ['<?php echo $custom_font; ?>', '<?php echo $tagline_font; ?>'] }
-};
-
-<?php } else if ($use_custom_font) { ?>
-
-WebFontConfig = {
-    google: { families: [ '<?php echo $custom_font; ?>'] }
-};
-
-<?php } else if ($use_custom_tagline_font) { ?>
-
-WebFontConfig = {
-    google: { families: [ '<?php echo $tagline_font; ?>'] }
-};
-
-<?php } ?>
-
-(function() {
-    var webfontscript = document.createElement('script');
-    webfontscript.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    webfontscript.type = 'text/javascript';
-    webfontscript.async = 'true';
-    var script = document.getElementsByTagName('script')[0];
-    script.parentNode.insertBefore(webfontscript, script);
-})();
-
-<?php } ?>

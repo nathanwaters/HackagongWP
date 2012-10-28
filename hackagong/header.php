@@ -12,11 +12,11 @@
 
 	<!-- OPEN head -->
 	<head>
-		
 		<?php global $data; ?>
 		
 		<!-- Site Meta -->
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta name="fb-app" value="<?=FACEBOOK_APP_ID?>">
 		
 		<!-- Site Title -->
 		<title>
@@ -45,6 +45,7 @@
 		<?php } ?>
 		
 		<!-- LOAD Stylesheets -->
+		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/social.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/base.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/skeleton.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_bloginfo('template_directory'); ?>/css/flexslider.css" />
@@ -81,53 +82,10 @@
 		</div>
 	</noscript>
 	
-	<?php if ( is_front_page() ) { 
-	
-	  require_once ('sdk/facebook.php');
-	  require_once ('sdk/cache.class.php');
-
-	  $c = new Cache();
-	  $c->setCachePath(get_stylesheet_directory().'/sdk/cache/');
-	  $c->eraseExpired();
-
-	  if ($c->isCached('attending')) {
-
-	    $attending = $c->retrieve('attending');
-
-	  } else {
-
-	    $facebook = new Facebook(array(
-	      'appId'  => '104236416398654',
-	      'secret' => '<SECRET KEY>',
-	    ));
-	    $access_token = $facebook->getAccessToken();
-	    $params = array('access_token' => $access_token);
-
-	    $objs = $facebook->api('139968802813349/events', 'GET', $params);
-
-	    foreach($objs['data'] as $data) {
-
-	        $objs2 = $facebook->api($data['id'].'/invited', 'GET', $params);
-
-	        foreach ($objs2['data'] as $attendee) {
-	          if ($attendee['rsvp_status'] == 'attending' || $attendee['rsvp_status'] == 'unsure') {
-	          	file_put_contents(get_stylesheet_directory().'/sdk/cache/'.$attendee['id'].'.jpg', file_get_contents(get_bloginfo('template_directory').'/sdk/timthumb.php?src=http://graph.facebook.com/'.$attendee['id'].'/picture?type=large&w=75&h=75'));
-	            $attending[] = $attendee['id'];
-	          }
-	        }
-
-	    }
-
-	    $c->store('attending', $attending, 60*60*24*7);
-
-	  }	
+	<?php
+   if ( is_front_page() ) { 
+      print hg_facebook_user_tiles();
 	?>
-
-	<div id="faces-wrap">
-		<div class="faces">
-			<?php shuffle($attending); foreach ($attending as $id) { ?><img src="<?php echo get_bloginfo('template_directory').'/sdk/cache/'.$id; ?>.jpg"><?php } ?>
-		</div>
-	</div>
 
 	<?php
 	if(have_posts()) : while(have_posts()) : the_post(); ?>
@@ -142,19 +100,54 @@
 		<div id="header-section">
 
 			<div class="container">
+        <!-- USER REGISTRATION -->
+        <div id="social-wrap">
+          <div id="header-logo">
+            <p>HackAGong</p>
+          </div>
+          <?php if(is_user_logged_in()): ?>
+            <?php
+              global $current_user;
+              get_currentuserinfo();
 
+              // $user = wp_get_current_user();
+            ?>
+            <div id="social-loggedin">
+              <ul>
+                <li><a href="<?php echo wp_logout_url('/'); ?>" title="Logout">Logout</a></li>
+                <?php if(is_admin()): ?>
+                  <li><a href="/wp-admin/">Backend</a></li>
+                <?php endif; ?>
+                <li><a href="/messages">Messages</a></li>
+                <li><a href="/attendees">Attendees</a></li>
+                <li><a href="/profile"><?php echo hg_user_profilepic(); ?> <?php echo $current_user->username ?> <?php echo $current_user->last_name ?> </a></li>
+              </ul>
+            </div>
+          <?php else: ?>
+            <div id="social-login">
+              <ul>
+                <li><a href="#" id="social_login_fb"><img src="<?bloginfo('template_url');?>/images/social/facebook_32.png" class="social_icon"></a></li>
+                <!-- <li><a href="#" id="social_login_tw"><img src="<?bloginfo('template_url');?>/images/social/twitter_32.png" class="social_icon"></a></li> -->
+                <!-- <li><a href="#" id="social_login_go"><img src="<?bloginfo('template_url');?>/images/social/google_32.png" class="social_icon"></a></li> -->
+                <li>Login with:</li>
+              </ul>
+            </div>
+          <?php endif; ?>
+        </div>
+        
+        
 				<header class="sixteen columns">
 					
-					<!--<div id="logo" class="four columns alpha">
-						<a href="<?php bloginfo('url'); ?>">
-							<?php $logo = $data['ab_logo_upload'];?>
-							<?php if ($logo) { ?>
-							<img src="<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" />
-							<?php } else { ?>
-							<img src="<?php echo get_bloginfo('template_directory'); ?>/images/logo-light.png" alt="<?php bloginfo( 'name' ); ?>" />
-							<?php } ?>
-						</a>
-					</div>-->
+					<!-- <div id="logo" class="four columns alpha">
+					                    <a href="<?php bloginfo('url'); ?>">
+					                      <?php $logo = $data['ab_logo_upload'];?>
+					                      <?php if ($logo) { ?>
+					                      <img src="<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" />
+					                      <?php } else { ?>
+					                      <img src="<?php echo get_bloginfo('template_directory'); ?>/images/logo-light.png" alt="<?php bloginfo( 'name' ); ?>" />
+					                      <?php } ?>
+					                    </a>
+					                  </div> -->
 
 					<div class="nav-wrap sixteen columns omega">
 	

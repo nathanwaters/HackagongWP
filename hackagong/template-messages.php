@@ -1,15 +1,20 @@
 <?php
 /*
-Template Name: Blog
+Template Name: Messages
 */
-?>
 
-<?php get_header(); ?>
 
-<?php
-	global $data;
-	$older_entries_text = $data['ab_older_entries_btn_str'];
-	$newer_entries_text = $data['ab_newer_entries_btn_str'];
+if (!is_user_logged_in()) { 
+  auth_redirect(); 
+}
+nocache_headers();
+
+get_header(); 
+
+global $data;
+$older_entries_text = $data['ab_older_entries_btn_str'];
+$newer_entries_text = $data['ab_newer_entries_btn_str'];
+
 ?>
 
 <!-- OPEN #blog -->
@@ -18,7 +23,7 @@ Template Name: Blog
 	<div class="section-heading blog-heading clearfix">
 		<div class="container">
 			<div class="section-heading-content sixteen columns">
-				<h1><?php echo do_shortcode(stripslashes($data['ab_blog_title_str'])); ?></h1>
+				<h1>Forum</h1>
 				<div class="sub-heading">
 					<span class="section-desc"><?php echo do_shortcode(stripslashes($data['ab_blog_tag_str'])); ?></span>
 				</div>
@@ -26,6 +31,13 @@ Template Name: Blog
 		</div>
 	</div>
 
+  <div class="section-content container">
+    <div class="container">
+      <textarea></textarea>
+      <input type="submit" value="Post Message">
+    </div>
+  </div>
+  
 	<div class="section-content container">
 
 		<?php
@@ -38,7 +50,7 @@ Template Name: Blog
 			'paged' => $paged,
 			'posts_per_page' => $per_page,
 			'ignore_sticky_posts'=> 1,
-			'cat'=>1
+			'cat'=>4
 		  );
 		  $wp_query = NULL;
 		  $wp_query = new WP_Query();
